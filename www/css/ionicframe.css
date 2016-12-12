@@ -1,0 +1,44 @@
+.body-container .side-container .slide-page .slide-content {
+  height: 100vh;
+  width: 100%;
+  background: #f1f0f0;
+}
+.body-container .side-container .slide-page .slider-pager {
+  display: none !important;
+}
+.body-container .footer-container {
+  /*background: #f8f8f8;*/
+  /*border-top: 1px solid #b2b2b2;*/
+  /*height: 55px;*/
+  padding: 0;
+}
+.body-container .footer-container .foot-tabs {
+  height: 60px;
+}
+.body-container .footer-container .foot-tabs .tab {
+  color: #908e8e;
+  text-decoration: none;
+}
+.body-container .footer-container .foot-tabs .tab.active {
+  color: black;
+}
+.body-container .footer-container .foot-tabs .tab .tab-item {
+  min-width: 100px;
+  position: relative;
+}
+.body-container .footer-container .foot-tabs .tab .tab-item .icon {
+  margin-top: -5px;
+  font-size: 27px;
+  height: 23px;
+}
+.body-container .footer-container .foot-tabs .tab .tab-title {
+  font-size: 11px;
+}
+.body-container .main-container .app-header .nav-title {
+  text-align: center;
+  font-size: 20px;
+}
+.body-container .main-container .app-body {
+  margin-top: 43px;
+}
+/*# sourceMappingURL=ionicframe.css.map */
