@@ -1,12 +1,13 @@
 define([
-    'angularAMD',
-    'angular-ui-router'
-], function (angularAMD) {
+    "angularAMD",
+    "common",
+    "angular-ui-router"
+], function (angularAMD, common) {
 
-    'use strict';
+    "use strict";
 
 
-    var app = angular.module("ionicFrameApp", ['ui.router', 'ionic']);
+    var app = angular.module("ionicFrameApp", ["ui.router", "ionic"]);
     app.run(function ($rootScope, $ionicPlatform, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -16,38 +17,41 @@ define([
             if (window.StatusBar) {
                 StatusBar.styleDefault();
             }
-            $rootScope.$on('$viewContentLoaded', function (scope) {
+            $rootScope.$on("$viewContentLoaded", function (scope) {
                 var target = scope.targetScope;
+
+                common.showLoading();
+
                 target.activate && target.activate();
             });
 
 
 
-            //$rootScope.$on('$ionicView.afterEnter', function (event) {
+            //$rootScope.$on("$ionicView.afterEnter", function (event) {
             //    $ionicSideMenuDelegate.canDragContent(true);
             //});
-            //$rootScope.$on('$ionicView.beforeLeave', function (event) {
+            //$rootScope.$on("$ionicView.beforeLeave", function (event) {
             //    $ionicSideMenuDelegate.canDragContent(false);
             //});
         });
-        
-        //$rootScope.$on('$stateChangeSuccess', function () {
+
+        //$rootScope.$on("$stateChangeSuccess", function () {
         //});
 
 
     });
-    angularAMD.directive('leftSide', function () {
+    angularAMD.directive("leftSide", function () {
         return {
-            restrict: 'E',
-            templateUrl: 'view/side.html',
-            controller: "sideCtrl",
+            restrict: "E",
+            templateUrl: "view/side.html",
+            controller: "sideCtrl"
         };
     });
-    angularAMD.directive('footer', function () {
+    angularAMD.directive("footer", function () {
         return {
-            restrict: 'E',
-            templateUrl: 'view/footer.html',
-            controller: "footerCtrl",
+            restrict: "E",
+            templateUrl: "view/footer.html",
+            controller: "footerCtrl"
         };
     });
 
@@ -59,13 +63,13 @@ define([
     app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/main/main");
         $stateProvider
-            .state('main', {
-                url: '/:session/:page',
+            .state("main", {
+                url: "/:session/:page",
                 templateUrl: function (hash) {
                     return "view/" + hash.session + "/" + hash.page + ".html";
                 },
                 resolve: {
-                    load: ['$q', '$rootScope', '$stateParams', function ($q, $rootScope, $stateParams) {
+                    load: ["$q", "$rootScope", "$stateParams", function ($q, $rootScope, $stateParams) {
                             var defer = $q.defer();
                             var param = $stateParams;
 
@@ -90,17 +94,17 @@ define([
     //app.config(function ($stateProvider, $urlRouterProvider) {
     //    $urlRouterProvider.otherwise("/dashboard");
     //    $stateProvider
-    //        .state('main', angularAMD.route({
-    //            url: '/main',
-    //            templateUrl: 'view/main.html',
-    //            controller: 'mainCtrl',
-    //            controllerUrl: 'controller/main'
+    //        .state("main", angularAMD.route({
+    //            url: "/main",
+    //            templateUrl: "view/main.html",
+    //            controller: "mainCtrl",
+    //            controllerUrl: "controller/main"
     //        }))
     //        .state("dashboard", angularAMD.route({
     //            url: "/dashboard",
-    //            templateUrl: 'view/dashboard.html',
-    //            controller: 'dashboardCtrl',
-    //            controllerUrl: 'controller/dashboard'
+    //            templateUrl: "view/dashboard.html",
+    //            controller: "dashboardCtrl",
+    //            controllerUrl: "controller/dashboard"
     //        }));
     //});
 

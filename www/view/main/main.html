@@ -18,6 +18,13 @@
         <a href="#/main/dashboard" class="btn btn-default">go to Dashboard</a>
 
 
+        <button class="btn btn-primary" ng-click="getBLEDevice()">GET DEVICE</button>
+
+
+        <div ng-repeat="b in bluetoothList">
+            {{b}}
+        </div>
+
 
     </ion-content>
 

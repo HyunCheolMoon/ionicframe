@@ -20,16 +20,24 @@ requirejs.config({
         "angularAMD": bowerDir + "angularAMD/angularAMD",
         "angular-ui-router": bowerDir + "angular-ui-router/release/angular-ui-router",
         "util": "common/util",
+        "bluetooth": "service/bluetooth",
+        "common": "service/common",
         "app": "app",
         "side": "controller/side",
         "footer": "controller/footer"
     },
     shim: {
-        'angularAMD': ['angular'],
-        'angular-ui-router': ['angular']
-            //'angular-route': ['angular']
+        "angularAMD": ["angular"],
+        "angular-ui-router": ["angular"]
+            //"angular-route": ["angular"]
     },
-    deps: ['app', "side", "footer"]
+    deps: [
+        "app",
+        "jquery",
+        "common",
+        "side",
+        "footer"
+    ]
 });
 requirejs.onError = function (e) {
     if (e.requireType === "scripterror") {

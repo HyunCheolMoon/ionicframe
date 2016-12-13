@@ -1,3 +1,20 @@
+.body-container .spinner {
+  display: none;
+  height: 100%;
+  width: 100%;
+  background: rgba(222, 222, 222, 0.28);
+  stroke: #a5a5a5;
+  position: fixed;
+  z-index: 10;
+}
+.body-container .spinner svg {
+  position: absolute;
+  width: 10% !important;
+  height: 10% !important;
+  top: 40%;
+  left: 45%;
+  z-index: 11;
+}
 .body-container .side-container .slide-page .slide-content {
   height: 100vh;
   width: 100%;
