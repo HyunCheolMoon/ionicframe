@@ -25,9 +25,9 @@
         </div>
 
         <ion-list class="margin-top-20">
-            <ion-item ng-repeat="b in bluetoothList" ng-click="connectBLE(b.id)">
-                {{b}}
-                <button class="btn btn-default pull-right" ng-click="connectBLE(b.id)">aa</button>
+            <ion-item ng-repeat="b in bluetoothList">
+                {{b.name}} | {{b.id}}
+                <button class="btn btn-default pull-right" ng-click="connectBLE(b.id)">Connect</button>
             </ion-item>
         </ion-list>
 

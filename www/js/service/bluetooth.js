@@ -25,7 +25,6 @@ define(["app"], function (app) {
         };
 
         self.initialize = function (module) {
-            console.log(module)
             executionModule = module;
 
             activeCheckBluetooth();
@@ -67,7 +66,6 @@ define(["app"], function (app) {
                     default :
                         break;
                 }
-                console.log(state)
 
             });
         };
@@ -99,11 +97,34 @@ define(["app"], function (app) {
          ***********************************************************************/
 
 
+        /**
+         * 
+         * @description 블루투스 DEVICE와 연결 
+         */
         self.connect = function (id, callback) {
+            console.log("connect")
             ble.connect(
                 id,
                 function (res) {
+                    console.log("success")
                     callback(res);
+                },
+                function (err) {
+                    console.log(err)
+                    alert('Something went wrong while trying to connect. Please try again');
+                }
+            );
+        };
+        /**
+         * 
+         * @description 블루투스 DEVICE와 연결 해제
+         */
+        self.disconnect = function (id, callback) {
+            ble.disconnect(
+                id,
+                function () {
+                    console.log("disconnect")
+                    callback();
                 },
                 function (err) {
                     console.log(err)
@@ -140,7 +161,7 @@ define(["app"], function (app) {
                 console.log("fail")
 
             });
-            setTimeout(ble.stopScan, 5000,
+            setTimeout(ble.stopScan, 4000,
                 function () {
                     console.log("Scan complete");
                     executionModule.callList(scanDeviceList);

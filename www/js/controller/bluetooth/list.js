@@ -7,13 +7,17 @@ define(["app", "common", "bluetooth"], function (app, common) {
         self.activate = function () {
             console.log("bluetooth page");
             common.hideLoading();
-            console.log($location, $stateParams)
         };
 
 
         var callbluetoothList = function (list) {
-            self.bluetoothList = list;
-            console.log(list)
+            self.bluetoothList = [];
+            for (var i in list) {
+                var l = list[i];
+                if (!l.name)
+                    continue;
+                self.bluetoothList.push(l);
+            }
             common.hideLoading();
             $scope.$apply();
         };
@@ -41,11 +45,19 @@ define(["app", "common", "bluetooth"], function (app, common) {
             });
 
         };
+        /**
+         * 
+         * @description 블루투스 디바이스 connection
+         */
         self.connectBLE = function (id) {
-            bluetooth.connect(id, function(res){
-                console.log($state)
-                console.log(res)
-                alert(JSON.stringify(res));
+            console.log(id)
+
+            common.showLoading();
+            bluetooth.connect(id, function (res) {
+
+                common.hideLoading();
+                $location.path("/bluetooth/main/" + res.id);
+                $scope.$apply();
 
             });
         };
