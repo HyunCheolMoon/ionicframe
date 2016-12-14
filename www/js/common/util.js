@@ -36,6 +36,12 @@ define({
         var index = arr.indexOf(o);
         return arr.splice(index, 1);
     },
+    transCamel: function (str) {
+        str = str.toLowerCase().replace(/[a-zA-Z]/, function (arg) {
+            return arg.toUpperCase();
+        });
+        return str;
+    },
     /**
      * 
      * @param {Number} num

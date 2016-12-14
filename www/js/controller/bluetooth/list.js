@@ -1,12 +1,13 @@
 define(["app", "common", "bluetooth"], function (app, common) {
-    return app.controller("mainCtrl", function ($scope, bluetooth) {
+    return app.controller("bluetoothListCtrl", function ($scope, $location, $stateParams, bluetooth) {
         var self = $scope;
 
         self.bluetoothList = [];
 
         self.activate = function () {
-            console.log("main page");
+            console.log("bluetooth page");
             common.hideLoading();
+            console.log($location, $stateParams)
         };
 
 
@@ -42,6 +43,8 @@ define(["app", "common", "bluetooth"], function (app, common) {
         };
         self.connectBLE = function (id) {
             bluetooth.connect(id, function(res){
+                console.log($state)
+                console.log(res)
                 alert(JSON.stringify(res));
 
             });

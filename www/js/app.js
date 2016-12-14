@@ -1,8 +1,9 @@
 define([
     "angularAMD",
     "common",
+    "util",
     "angular-ui-router"
-], function (angularAMD, common) {
+], function (angularAMD, common, util) {
 
     "use strict";
 
@@ -61,9 +62,9 @@ define([
      * @TODO hash 타입별 처리 및 모듈화  
      */
     app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/main/main");
+        $urlRouterProvider.otherwise("/main/dashboard");
         $stateProvider
-            .state("main", {
+            .state("page", {
                 url: "/:session/:page",
                 templateUrl: function (hash) {
                     return "view/" + hash.session + "/" + hash.page + ".html";
@@ -78,8 +79,33 @@ define([
                             var controller = param.page;
                             var load = "controller/" + session + "/" + controller;
 
+                            this.controller = session + util.transCamel(controller) + "Ctrl";
 
-                            this.controller = controller + "Ctrl";
+                            require([load], function () {
+                                $rootScope.$apply(function (fn) {
+                                    defer.resolve(load);
+                                });
+                            });
+                            return defer.promise;
+                        }]
+                }
+            })
+            .state("loadpage", {
+                url: "/:session/:page/:id",
+                templateUrl: function (hash) {
+                    return "view/" + hash.session + "/" + hash.page + ".html";
+                },
+                resolve: {
+                    load: ["$q", "$rootScope", "$stateParams", function ($q, $rootScope, $stateParams) {
+                            var defer = $q.defer();
+                            var param = $stateParams;
+
+
+                            var session = param.session;
+                            var controller = param.page;
+                            var load = "controller/" + session + "/" + controller;
+
+                            this.controller = session + util.transCamel(controller) + "Ctrl";
 
                             require([load], function () {
                                 $rootScope.$apply(function (fn) {
