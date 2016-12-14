@@ -99,6 +99,18 @@ define(["app"], function (app) {
          ***********************************************************************/
 
 
+        self.connect = function (id, callback) {
+            ble.connect(
+                id,
+                function (res) {
+                    callback(res);
+                },
+                function (err) {
+                    console.log(err)
+                    alert('Something went wrong while trying to connect. Please try again');
+                }
+            );
+        };
 
         /**
          * 

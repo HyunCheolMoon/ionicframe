@@ -19,6 +19,7 @@ requirejs.config({
         "angular": bowerDir + "angular/angular",
         "angularAMD": bowerDir + "angularAMD/angularAMD",
         "angular-ui-router": bowerDir + "angular-ui-router/release/angular-ui-router",
+        "firebase": bowerDir + "firebase/firebase",
         "util": "common/util",
         "bluetooth": "service/bluetooth",
         "common": "service/common",

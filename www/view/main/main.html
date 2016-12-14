@@ -20,10 +20,11 @@
 
         <button class="btn btn-primary" ng-click="getBLEDevice()">GET DEVICE</button>
 
-
-        <div ng-repeat="b in bluetoothList">
-            {{b}}
-        </div>
+        <ion-list>
+            <ion-item ng-repeat="b in bluetoothList" ng-click="connectBLE(b.id)">
+                {{b}}
+            </ion-item>
+        </ion-list>
 
 
     </ion-content>

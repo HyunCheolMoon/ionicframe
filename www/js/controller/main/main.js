@@ -12,9 +12,9 @@ define(["app", "common", "bluetooth"], function (app, common) {
 
         var callbluetoothList = function (list) {
             self.bluetoothList = list;
+            console.log(list)
             common.hideLoading();
             $scope.$apply();
-            console.log(self.bluetoothList)
         };
 
 
@@ -39,6 +39,12 @@ define(["app", "common", "bluetooth"], function (app, common) {
                 callList: callbluetoothList
             });
 
+        };
+        self.connectBLE = function (id) {
+            bluetooth.connect(id, function(res){
+                alert(JSON.stringify(res));
+
+            });
         };
 
 
