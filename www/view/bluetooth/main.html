@@ -4,7 +4,7 @@
         <!--<span class="icon-icon-left-3"></span>-->
         <!--</ion-nav-back-button>-->
         <ion-nav-title class="nav-title">
-            Controller
+            {{device.name}}
         </ion-nav-title>
         <ion-nav-buttons side="left" class="header-side-btn">
             <!-- Toggle right side menu -->
@@ -14,9 +14,14 @@
 
 
     <ion-content class="app-body">
-        <h3>Controller Page</h3>
+        <h3>{{device.name}} Controller</h3>
         <button class="btn btn-danger" ng-click="disconnectBLE()">Disconnect</button>
-
+        <br><br><br>
+        <div class="padding-10" ng-if="level !== null">
+            <h1>Type : {{type}}</h1>
+            <h1>Date : {{date}}</h1>
+            <h1>Level : {{level}}</h1>
+        </div>
 
 
     </ion-content>

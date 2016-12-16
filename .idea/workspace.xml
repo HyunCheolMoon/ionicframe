@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b21a5c90-9f44-46b8-955d-f7112dcdeb8a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/view/bluetooth/main.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/controller/bluetooth/main.js" />
-      <change type="MOVED" beforePath="C:\Users\iKooB\WebstormProjects\IonicDemoBLE\www\js\controller\main\main.js" afterPath="$PROJECT_DIR$/www/js/controller/bluetooth/list.js" />
-      <change type="MOVED" beforePath="C:\Users\iKooB\WebstormProjects\IonicDemoBLE\www\view\main\main.html" afterPath="$PROJECT_DIR$/www/view/bluetooth/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/service/bluetooth.js" afterPath="$PROJECT_DIR$/www/js/service/bluetooth.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/common.css.map" afterPath="$PROJECT_DIR$/www/css/common.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/common.css" afterPath="$PROJECT_DIR$/www/css/common.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/less/common.less" afterPath="$PROJECT_DIR$/www/less/common.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/view/main/dashboard.html" afterPath="$PROJECT_DIR$/www/view/main/dashboard.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controller/main/dashboard.js" afterPath="$PROJECT_DIR$/www/js/controller/main/dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/view/footer.html" afterPath="$PROJECT_DIR$/www/view/footer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/ionicframe.css.map" afterPath="$PROJECT_DIR$/www/css/ionicframe.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/ionicframe.css" afterPath="$PROJECT_DIR$/www/css/ionicframe.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/common/util.js" afterPath="$PROJECT_DIR$/www/js/common/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/view/bluetooth/main.html" afterPath="$PROJECT_DIR$/www/view/bluetooth/main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controller/bluetooth/main.js" afterPath="$PROJECT_DIR$/www/js/controller/bluetooth/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="IonicDemoBLE.iws" />
@@ -53,8 +48,8 @@
       <file leaf-file-name="ble.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-ble-central/www/ble.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75371903" vertical-offset="1710" max-vertical-offset="4769">
-              <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.78512394" vertical-offset="1710" max-vertical-offset="4769">
+              <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -84,8 +79,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="40" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
   </component>
@@ -493,14 +487,25 @@
       <option name="project" value="LOCAL" />
       <updated>1481703796728</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="페이지 로드 구조 변경">
+      <created>1481707149966</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1481707149966</updated>
+    </task>
+    <task id="LOCAL-00004" summary="페이지 이동 및 disconnection 기능 추가">
+      <created>1481714802194</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1481714802194</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="40" y="0" width="1936" height="1066" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32192513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -527,6 +532,7 @@
       <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -548,13 +554,52 @@
     </option>
     <MESSAGE value="블루투스 기능 angular service로 추가 및 기본구조 생성&#10;loading관련 기능 추가&#10;common.js 공용모듈 생성" />
     <MESSAGE value="bluetooth connection 및 firebase bower install" />
-    <option name="LAST_COMMIT_MESSAGE" value="bluetooth connection 및 firebase bower install" />
+    <MESSAGE value="페이지 로드 구조 변경" />
+    <MESSAGE value="페이지 이동 및 disconnection 기능 추가" />
+    <MESSAGE value="device의 action - level 및 데이터 출력" />
+    <option name="LAST_COMMIT_MESSAGE" value="device의 action - level 및 데이터 출력" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="1273">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-ble-central/www/ble.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4769">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="1273">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-ble-central/www/ble.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4769">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="1254">
@@ -676,8 +721,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-ble-central/www/ble.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75371903" vertical-offset="1710" max-vertical-offset="4769">
-          <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.78512394" vertical-offset="1710" max-vertical-offset="4769">
+          <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

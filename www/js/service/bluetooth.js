@@ -5,6 +5,40 @@ define(["app"], function (app) {
 
         var executionModule = null;
 
+
+
+        var profile = null;
+        self.profile = {
+            set: function (obj) {
+                profile = obj;
+            },
+            get: function () {
+                if (profile === null)
+                    return false;
+                return profile;
+            },
+            del: function () {
+                profile = null;
+                return true;
+            }
+        };
+
+
+        self.initialize = function (module) {
+            executionModule = module;
+
+            activeCheckBluetooth();
+
+        };
+
+        /***********************************************************************
+         * 
+         * 
+         *                       background event 
+         * 
+         * 
+         ***********************************************************************/
+
         /**
          * 
          * @description 디바이스의 블루투스가 활성화 되어 있는지 확인
@@ -23,22 +57,6 @@ define(["app"], function (app) {
                 });
 
         };
-
-        self.initialize = function (module) {
-            executionModule = module;
-
-            activeCheckBluetooth();
-
-        };
-
-        /***********************************************************************
-         * 
-         * 
-         *                       background 
-         * 
-         * 
-         ***********************************************************************/
-
         /**
          * @state
          * 
@@ -87,11 +105,57 @@ define(["app"], function (app) {
         };
 
 
+        /***********************************************************************
+         * 
+         * 
+         *                     bluetooth device event (service) 
+         * 
+         * 
+         ***********************************************************************/
+        function stringToBytes(string) {
+            var array = new Uint8Array(string.length);
+            for (var i = 0, l = string.length; i < l; i++) {
+                array[i] = string.charCodeAt(i);
+            }
+            return array.buffer;
+        }
+
+        function arrayToBuffer(buffer) {
+            var arr = new Uint8Array(buffer);
+            //var str = String.fromCharCode.apply(null, new Uint8Array(buffer));
+            return arr;
+        }
+        self.read = function (id, service, characteristic) {
+            console.log("read")
+            ble.read(id, service, characteristic,
+                function (res) {
+                    console.log(arrayToBuffer(res))
+                },
+                function (err) {
+                    console.log(err)
+
+                }
+            );
+        };
+
+        self.startNoti = function (id, service, characteristic, callback) {
+            console.log("noticestart")
+            ble.startNotification(id, service, characteristic, function (res) {
+                console.log(res)
+                var b = arrayToBuffer(res);
+                callback(b);
+            },
+                function (err) {
+                    console.log(err)
+
+                }
+            );
+        };
 
         /***********************************************************************
          * 
          * 
-         *                     event / action 
+         *                     mobile device event (connect)
          * 
          * 
          ***********************************************************************/
@@ -102,15 +166,13 @@ define(["app"], function (app) {
          * @description 블루투스 DEVICE와 연결 
          */
         self.connect = function (id, callback) {
-            console.log("connect")
             ble.connect(
                 id,
                 function (res) {
-                    console.log("success")
+                    self.profile.set(res);
                     callback(res);
                 },
                 function (err) {
-                    console.log(err)
                     alert('Something went wrong while trying to connect. Please try again');
                 }
             );
@@ -123,7 +185,7 @@ define(["app"], function (app) {
             ble.disconnect(
                 id,
                 function () {
-                    console.log("disconnect")
+                    self.profile.del();
                     callback();
                 },
                 function (err) {
@@ -141,7 +203,6 @@ define(["app"], function (app) {
 
             ble.enable(
                 function () {
-                    console.log("ok")
                     getBluetoothList();
 
                 },
@@ -163,15 +224,17 @@ define(["app"], function (app) {
             });
             setTimeout(ble.stopScan, 4000,
                 function () {
-                    console.log("Scan complete");
                     executionModule.callList(scanDeviceList);
                     activateStateCommander();
                 },
                 function () {
-                    console.log("stopScan failed");
                 }
             );
         };
+
+
+
+
 
 
     });
